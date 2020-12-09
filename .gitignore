@@ -1,0 +1,11 @@
+data/dict/fallback/*
+data/dict/priority/*
+data/Image_Audio/*
+test-config.yml
+
+manual.txt
+test-config.yaml
+test-words.txt
+
+__pycache__
+

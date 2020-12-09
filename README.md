@@ -1,49 +1,53 @@
 # Swift Anki Exporter
-This is a script to make [anime cards]("https://www.animecards.site") on the fly with a single hotkey. It takes a sentence from [yourei](https://www.yourei.jp), an image from [google images](https://www.google.com/imghp?hl=ja), an audio recording from [forvo](https://www.forvo.com), and finally, a couple meanings from yomichan dictionaries of your choice, which is all packaged into 1 card and sent directly to your anki. 
+
+This is a script to make [anime cards]("https://www.animecards.site") on the fly with a single hotkey. It takes a sentence from [yourei](https://www.yourei.jp), an image from [google images](https://www.google.com/imghp?hl=ja), an audio recording from [forvo](https://www.forvo.com), and finally, a couple meanings from yomichan dictionaries of your choice, which is all packaged into 1 card and sent directly to your anki.
 
 ## Installation
+
 First, you need to install all the dependencies. This can be done with a simple command:
+
 ```
-pip3 install -r requirements.txt
+./scripts/build.sh
 ```
+
 The next step is to set up the config in [config.yml](config.yml). All you have to do is fill in the missing blanks.
 Here's an example config file:
+
 ```yml
 anki:
-    collection: "C:/Users/{your username}/AppData/Roaming/Anki2/{the name of your profile}/collection.anki2"
-    word_file: "C:/Users/{your username/Desktop/Mined words.txt"
-    deck: "My Deck"
-    note_type: "My Notetype"
-    word_field: "Word"
-    sentence_field: "Expression"
-    image_field: "Picture"
-    audio_field: "Audio"
-    meaning_field: "Meaning"
+  collection: "/home/username/.local/share/Anki2/profile1/collection.anki2"
+  deck: "My Deck"
+  note_type: "My Notetype"
+  word_field: "Word"
+  sentence_field: "Expression"
+  image_field: "Picture"
+  audio_field: "Audio"
+  meaning_field: "Meaning"
 ```
-Notes: 
-1. you need to type in the fields *exactly* as it is in anki or else it will not work.
-2. The collection is you profile's database and the `word_file` is the path to the a txt file with a list of words
-3. You have to close anki before running this script
-   
-Next, we need to setup the dictionaries that you will be using. There's 2 folders in the `dict` folder, fallback and priority. Priority is the folder where you will put your dicts that you want to search first. Fallback will be used to fallback to the dictionary in the fallback folder if it couldnt find any meanings in your priority dicts. 
 
-Make sure you unzip the yomichan dictionaries to its own folder and move it to the appropriate directory inside `dict`
+Notes:
+
+1. You need to type in the fields _exactly_ as it is in anki or else it will not work.
+2. The collection is your profile's database
+3. You have to close anki before running this script
+
+Next, we need to setup the dictionaries that you will be using. There's 2 folders in the `dict` folder, fallback and priority. Priority is the folder where you will put your dicts that you want to search first. The dictionaries located in the fallback folder will be used if the program couldn't find any entries in your priority dicts.
+
+Make sure you unzip the yomichan dictionaries to its own folder and move it to the appropriate directory inside `dict`. Here is an example of how it could look:
+
+![](screenshots/dicts.png)
 
 ## Options
+
 There are 2 options to use when running this script, `--word` and `--parsefile`.
-1. The word flag (which is defaulted to true) is used to make an anki card from the word in your clipboard. 
+
+1. The word flag (which is defaulted to true) is used to make an anki card from the word in your clipboard.
 2. The parsefile flag is used to batch add cards from a txt file with the list of words. And you already set this file path up in the config.
 
-If you are on linux, or have the [Auto Hot Key](https://www.autohotkey.com/), there are already scripts for these in the `scripts` folder.
+Before running this script, you might need to click the downgrade and quit button in anki.
 
-## Hotkey setup
-You can setup a hotkey for this program either through linux or [Auto Hot Key](https://www.autohotkey.com/).
+There's an easier way to run this program, and that is through the bash files in the[`scripts`](scripts) folder of this repo.
 
-### AHK
-If you aren't on linux, you can run the auto hot key script in `scripts/ahk/add-one` which listens for `Ctr+Shift+Space` and export the word in your clipboard to anki.
+### Hotkey
 
-### Linux
-If you are on linux, setting up a hotkey is actually really simple. There are multiple guides on the internet for that, and once you get to the part where you enter a command, type in the full path to `scripts/add-one.sh`.
-
-
-
+Setting up a hotkey on Linux is actually really simple. Most desktop environments/window managers have a place for hotkeys in their system settings/config file. There are multiple scripts located in the [`scripts`](scripts) folder of this repo. Make a keybind that runs the file [`add-one.sh`](scripts/add-one.sh). This file with generate an anki card for the word in your clipboard.

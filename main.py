@@ -32,7 +32,7 @@ def package_card(word):
         return False
 
     utils.add_to_deck(col, sentence, deconjugated_word, audio,
-                      image, meanings,  dict(list(config.items())[2:]))
+                      image, meanings,  dict(list(config.items())[1:]))
     return True
 
 

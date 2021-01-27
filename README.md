@@ -1,6 +1,6 @@
 # Swift Anki Exporter
 
-This is a script to make [anime cards]("https://www.animecards.site") on the fly with a single hotkey. It takes a sentence from [yourei](https://www.yourei.jp), an image from [google images](https://www.google.com/imghp?hl=ja), an audio recording from [forvo](https://www.forvo.com), and finally, a couple meanings from yomichan dictionaries of your choice, which is all packaged into 1 card and sent directly to your anki.
+This is a script to make [anime cards]("https://www.animecards.site") on the fly with a single hotkey on linux. It takes a sentence from [yourei](https://www.yourei.jp), an image from [google images](https://www.google.com/imghp?hl=ja), an audio recording from [forvo](https://www.forvo.com), and finally, a couple meanings from yomichan dictionaries of your choice, which is all packaged into 1 card and sent directly to your anki.
 
 ## Installation
 

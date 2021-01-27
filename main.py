@@ -37,7 +37,9 @@ def package_card(word):
 
 
 def text_file():
-    words = utils.read_words(pathlib.Path(__file__).parent.joinpath("words.txt"))
+    words = utils.read_words(pathlib.Path(
+        __file__).parent.joinpath("words.txt"))
+    words = list(set(words))
     pbar = tqdm(words)
     for word in pbar:
         res = package_card(word)
